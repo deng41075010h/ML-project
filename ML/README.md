@@ -29,7 +29,8 @@ the **Netflix Prize Dataset** and the **MovieLens Dataset**, along with evaluati
 
 ### 2. MovieLens Dataset
 
-- **`MovieLens Dataset/main.py`**  
+- **`MovieLens Dataset/main.py`**
+- Content-based filtering without time bias and with time bias.
 
   ```bash
   python main.py
