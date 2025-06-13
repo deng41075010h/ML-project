@@ -115,7 +115,9 @@ if __name__ == "__main__":
     print(f"Evaluating Hit Rate@{top_k} (use_time_bias={False})...")
     hr = hit_rate_at_k(user_profiles, test_ratings, train_ratings, genre_df, k=top_k)
     print(f"Hit Rate@{top_k} = {hr:.4f}\n")
-
+    
+    use_time_bias = True
+    user_profiles = build_user_profiles(train_ratings, genre_df, mlb_classes, use_time_bias, alpha)
     print("CBF with time bias")
     print(f"Evaluating Hit Rate@{top_k} (use_time_bias={True})...")
     hr = hit_rate_at_k(user_profiles, test_ratings, train_ratings, genre_df, k=top_k)
