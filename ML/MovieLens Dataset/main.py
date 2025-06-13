@@ -98,7 +98,7 @@ def hit_rate_at_k(user_profiles, test_ratings, train_ratings, genre_df, k=10):
 
 # --- 7. 主程式入口 ---
 if __name__ == "__main__":
-    use_time_bias = True   # ← 若不想用時間權重，改為 False
+    use_time_bias = False   # ← 若不想用時間權重，改為 False
     alpha = 0.001          # ← 時間衰退參數（越大越快衰退）
     top_k = 10             # ← 推薦前幾名用來算 HR@K
 
@@ -111,6 +111,12 @@ if __name__ == "__main__":
     print("Building user profiles...")
     user_profiles = build_user_profiles(train_ratings, genre_df, mlb_classes, use_time_bias, alpha)
 
-    print(f"Evaluating Hit Rate@{top_k} (use_time_bias={use_time_bias})...")
+    print("\nCBF without time bias")
+    print(f"Evaluating Hit Rate@{top_k} (use_time_bias={False})...")
+    hr = hit_rate_at_k(user_profiles, test_ratings, train_ratings, genre_df, k=top_k)
+    print(f"Hit Rate@{top_k} = {hr:.4f}\n")
+
+    print("CBF with time bias")
+    print(f"Evaluating Hit Rate@{top_k} (use_time_bias={True})...")
     hr = hit_rate_at_k(user_profiles, test_ratings, train_ratings, genre_df, k=top_k)
     print(f"Hit Rate@{top_k} = {hr:.4f}")
