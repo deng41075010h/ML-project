@@ -29,13 +29,7 @@ the **Netflix Prize Dataset** and the **MovieLens Dataset**, along with evaluati
 
 ### 2. MovieLens Dataset
 
-- **`cbf_main.py`** — Content-Based Filtering **without** considering time.  
-
-  ```bash
-  python main.py
-  ```
-
-- **`cbf_main.py`** — Time-aware Content-Based Filtering.  
+- **`MovieLens Dataset/main.py`**  
 
   ```bash
   python main.py
